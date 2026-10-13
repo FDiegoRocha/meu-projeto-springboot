@@ -46,4 +46,9 @@ public class ProdutoController {
 	public Optional<Produto> findyById(@PathVariable Long id) {
 		return produtoService.findById(id);
 	}
+	
+	@PostMapping("/salvarLista")
+	public List<Produto> salvarLista(@RequestBody List<Produto> produto){
+		return produtoService.salvarLista(produto);
+	}
 }
