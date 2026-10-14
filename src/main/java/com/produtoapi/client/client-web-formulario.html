@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Cliente Web Externo</title>
+	</head>
+	<body>
+		<h1>CRUD - Cliente HTML/JavaScript</h1>
+		<div>
+			<label for="id">ID:</label>
+			<input type="text" id="id">
+		</div>
+		<div>
+			<Label for="nome">Nome:</Label>
+			<input type="text" id="nome">
+		</div>
+		<div>
+			<Label for="preco">Preço:</Label>
+			<input type="text" id="preco">
+		</div>
+		<div>
+			<Label for="quantidade">Quantidade:</Label>
+			<input type="text" id="quantidade">
+		</div>
+		<div>
+			<Label for="status">Status:</Label>
+			<input type="text" id="status">
+		</div>
+		<button onclick="salvar()" style="background-color: green; color: white;">Salvar</button>
+		<button onclick="atualizar()" style="background-color: blue; color: white;">Atualizar</button>
+		<button onclick="deletar()" style="background-color: red; color: white;">Deletar</button>
+		<button onclick="carregarCampos()" style="background-color: gray; color: white;">Consulta</button>
+		<button onclick="LimparCampos()" style="background-color: black; color: white;">Limpar Campos</button>
+	<h2>Lista de produtos</h2>
+	<ul id="lista-produtos"></ul>
+	<p id="total-produtos"></p>
+	<script>
+		const BASE_URL = 'http://localhost:8080/produtos';
+		function getprodutoFromform(){
+			const nome = document.getElementById('nome').value;
+			const preco = document.getElementById('preco').value;
+			const quantidade = document.getElementById('quantidade').value;
+			const status = document.getElementById('status').value;
+			return {nome, preco: parseFloat(preco), quantidade: parseInt(quantidade), status}
+		}
+		
+	</script>
+	</body>
+</html>
