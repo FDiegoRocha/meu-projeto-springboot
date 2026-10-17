@@ -80,4 +80,27 @@ public class ProdutoController {
 	public List<Produto> buscarPorNomeTerminandoCom(@RequestParam String valor) {
 		return produtoService.findByNomeEndingWith(valor);
 	}
+
+	// ==============================================================================
+	// =================== BUSCAS DETALHADAS POR PREÇO ==============================
+	// ==============================================================================
+	@GetMapping("/buscarPorPreco")
+	public List<Produto> buscarPorPreco(@RequestParam Double valor) {
+		return produtoService.findByPreco(valor);
+	}
+
+	@GetMapping("/buscarPorPrecoMaiorQue")
+	public List<Produto> buscarPorPrecoMaiorQue(@RequestParam Double valor) {
+		return produtoService.findByPrecoGreaterThan(valor);
+	}
+
+	@GetMapping("/buscarPorPrecoMenorQue")
+	public List<Produto> buscarPorPrecoMenorQue(@RequestParam Double valor) {
+		return produtoService.findByPrecoLessThan(valor);
+	}
+
+	@GetMapping("/buscarTotalPreco")
+	public Double buscarTotalPreco() {
+		return produtoService.findTotalPreco();
+	}
 }
