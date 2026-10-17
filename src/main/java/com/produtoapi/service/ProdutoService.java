@@ -65,7 +65,8 @@ public class ProdutoService {
 	}
 
 	// ==============================================================================
-	// =================== BUSCAS DETALHADAS POR PREÇO ==============================
+	// =================== BUSCAS DETALHADAS POR PREÇO
+	// ==============================
 	// ==============================================================================
 	public List<Produto> findByPreco(Double preco) {
 		return produtoRepository.findByPreco(preco);
@@ -81,6 +82,21 @@ public class ProdutoService {
 
 	public Double findTotalPreco() {
 		return produtoRepository.findTotalPreco();
+	}
+
+	// ==============================================================================
+	// ================ BUSCAS DETALHADAS POR QUANTIDADE DE PRODUTO =================
+	// ==============================================================================
+	public List<Produto> findByQuantidade(Integer quantidade) {
+		return produtoRepository.findByQuantidade(quantidade);
+	}
+
+	public List<Produto> findByQuantidadeLessThan(Integer quantidade) {
+		return produtoRepository.findByQuantidadeLessThan(quantidade);
+	}
+
+	public List<Produto> findByQuantidadeGreaterThan(Integer quantidade) {
+		return produtoRepository.findByQuantidadeGreaterThan(quantidade);
 	}
 
 }
