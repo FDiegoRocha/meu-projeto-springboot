@@ -69,8 +69,8 @@ public class CRUDJavaClient {
 		System.out.println("Atualizar o Produto");
 		client.atualizar(atualizarProduto.getId(), atualizarProduto);
 		client.listarTodos();
-//		
-//		
+		
+		
 		System.out.println("Deletar o produto");
 		client.deletar(152);
 		

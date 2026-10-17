@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.produtoapi.model.Produto;
@@ -48,9 +49,35 @@ public class ProdutoController {
 	public Optional<Produto> findyById(@PathVariable Long id) {
 		return produtoService.findById(id);
 	}
-	
+
 	@PostMapping("/salvarLista")
-	public List<Produto> salvarLista(@RequestBody List<Produto> produto){
+	public List<Produto> salvarLista(@RequestBody List<Produto> produto) {
 		return produtoService.salvarLista(produto);
+	}
+
+	// Endpoints de busca por nome
+	@GetMapping("/buscarPorNome")
+	public List<Produto> buscarPorNome(@RequestParam String valor) {
+		return produtoService.findByNome(valor);
+	}
+
+	@GetMapping("/buscarPorNomeContendo")
+	public List<Produto> buscarPorNomeContendo(@RequestParam String valor) {
+		return produtoService.findByNomeContaining(valor);
+	}
+
+	@GetMapping("/buscarPorNomeEStatus")
+	public List<Produto> buscarPorNomeEStatus(@RequestParam String nome, @RequestParam String status) {
+		return produtoService.findByNomeAndStatus(nome, status);
+	}
+
+	@GetMapping("/buscarPorNomeComecandoCom")
+	public List<Produto> buscarPorNomeComecandoCom(@RequestParam String valor) {
+		return produtoService.findByNomeStartingWith(valor);
+	}
+
+	@GetMapping("/buscarPorNomeTerminandoCom")
+	public List<Produto> buscarPorNomeTerminandoCom(@RequestParam String valor) {
+		return produtoService.findByNomeEndingWith(valor);
 	}
 }
